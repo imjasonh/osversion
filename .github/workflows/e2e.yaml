@@ -1,0 +1,34 @@
+name: e2e test
+
+on:
+  pull_request: 
+    branches: ['main']
+  push:
+    branches: ['main']
+
+jobs:
+  e2e:
+    strategy:
+      fail-fast: false
+      matrix:
+        platform:
+        - ubuntu-latest
+        - windows-latest
+
+      include:
+      - platform: ubuntu-latest
+        want: '^$'
+      - platform: windows-latest
+        want: '^10\.0\.17763\.[0-9]+'
+
+    name: e2e ${{ matrix.platform }}
+    runs-on: ${{ matrix.platform }}
+
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-go@v2
+      with:
+        go-version: 1.17.x
+
+    - run: |
+        go run ./cmd/ | grep ${{ matrix.want }}
