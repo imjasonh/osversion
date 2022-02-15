@@ -1,5 +1,7 @@
 # `osversion`
 
+[![e2e test](https://github.com/imjasonh/osversion/actions/workflows/e2e.yaml/badge.svg)](https://github.com/imjasonh/osversion/actions/workflows/e2e.yaml)
+
 This repo contains a minimal library for detecting the current Windows version at runtime.
 
 It's based on [similar code in Kubernetes](https://github.com/kubernetes/kubernetes/blob/30a21e9abdbbeb78d2b7ce59a79e46299ced2742/pkg/kubelet/winstats/version.go#L34-L76), itself seemingly based on [this StackOverflow answer](https://stackoverflow.com/questions/44363911/detect-windows-version-in-go), without requiring the large dependency on Kubernetes, and with end-to-end tests using GitHub Actions.
