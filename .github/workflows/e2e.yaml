@@ -13,12 +13,18 @@ jobs:
       matrix:
         platform:
         - ubuntu-latest
-        - windows-latest
+        - windows-2016
+        - windows-2019
+        - windows-2022
 
         include:
         - platform: ubuntu-latest
           want: '^$'
-        - platform: windows-latest
+        - platform: windows-2016
+          want: '^10\.0\.17763\.[0-9]+'
+        - platform: windows-2019
+          want: '^10\.0\.17763\.[0-9]+'
+        - platform: windows-2022
           want: '^10\.0\.17763\.[0-9]+'
 
     name: e2e ${{ matrix.platform }}
@@ -31,4 +37,5 @@ jobs:
         go-version: 1.17.x
 
     - run: |
+        go run ./cmd/
         go run ./cmd/ | grep ${{ matrix.want }}
