@@ -25,4 +25,4 @@ When this package is used on Windows, `osversion.Get` returns a string like `"10
 
 If this package is used on any non-Windows OS, `osversion.Get` returns an empty string.
 
-See [end-to-end test config](./github/workflows/e2e.yaml) to see expected values for different Windows versions.
+See [end-to-end test config](./.github/workflows/e2e.yaml) to see expected values for different Windows versions.
