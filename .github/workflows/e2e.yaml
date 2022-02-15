@@ -15,11 +15,11 @@ jobs:
         - ubuntu-latest
         - windows-latest
 
-      include:
-      - platform: ubuntu-latest
-        want: '^$'
-      - platform: windows-latest
-        want: '^10\.0\.17763\.[0-9]+'
+        include:
+        - platform: ubuntu-latest
+          want: '^$'
+        - platform: windows-latest
+          want: '^10\.0\.17763\.[0-9]+'
 
     name: e2e ${{ matrix.platform }}
     runs-on: ${{ matrix.platform }}
