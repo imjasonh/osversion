@@ -6,6 +6,9 @@ on:
   push:
     branches: ['main']
 
+permissions:
+  contents: read
+
 jobs:
   e2e:
     strategy:
@@ -21,11 +24,11 @@ jobs:
         - platform: ubuntu-latest
           want: '^$'
         - platform: windows-2016
-          want: '^10\.0\.17763\.[0-9]+'
+          want: '^10\.0\.14393$'
         - platform: windows-2019
-          want: '^10\.0\.17763\.[0-9]+'
+          want: '^10\.0\.17763$'
         - platform: windows-2022
-          want: '^10\.0\.17763\.[0-9]+'
+          want: '^10\.0\.20348$'
 
     name: e2e ${{ matrix.platform }}
     runs-on: ${{ matrix.platform }}

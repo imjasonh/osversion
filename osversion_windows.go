@@ -35,17 +35,14 @@ func Get() string {
 			log.Fatalf("osversion: get %s\\CurrentMinorVersionNumber failed: %v", keyPrefix, err)
 		}
 
-		v, _, err := k.GetStringValue("CurrentVersion")
-		if err != nil {
-			log.Fatal(err)
-		}
-
 		build, _, err := k.GetStringValue("CurrentBuildNumber")
 		if err != nil {
 			log.Fatalf("osversion: get %s\\CurrentBuildNumber failed: %v", keyPrefix, err)
 		}
 
-		osversion = fmt.Sprintf("%d.%d.%s.%s", v, maj, min, build)
+		// TODO: get the fourth component from somewhere.
+
+		osversion = fmt.Sprintf("%d.%d.%s", maj, min, build)
 	})
 	return osversion
 }
