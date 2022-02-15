@@ -10,7 +10,6 @@ It has a single dependency on [`x/sys/windows/registry`](https://pkg.go.dev/gola
 
 Its intended use is to be able to match OCI container image manifests with a platform value that specifies an `os.version`, so that the correct image can be selected, taking into account the Windows OS version.
 
-If this package is used on any non-Windows OS, `osversion.Get` returns an empty string.
 
 ## Usage
 
@@ -22,3 +21,8 @@ fmt.Printf("The current osversion is %q", osversion.Get())
 ...
 ```
 
+When this package is used on Windows, `osversion.Get` returns a string like `"10.0.17763"`, depending on the current Windows version.
+
+If this package is used on any non-Windows OS, `osversion.Get` returns an empty string.
+
+See [end-to-end test config](./github/workflows/e2e.yaml) to see expected values for different Windows versions.
